@@ -22,10 +22,15 @@
   },
   "homepage": "https://github.com/apex-io/abode-similar-homes-monthly-cost-neighborhood-facts#readme",
   "dependencies": {
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme": "^3.11.0"
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mysql": "^2.18.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
