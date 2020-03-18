@@ -35,9 +35,6 @@ const Stats = ({ neighborhood, house }) => {
     incDecFuture = 'dec';
   }
 
-  console.log('home cost:', house.home_cost);
-  console.log('median value:', neighborhood.median_value);
-
 
   let percentDiff;
   let incDecMedian = 'incDec';
