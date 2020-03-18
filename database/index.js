@@ -19,7 +19,19 @@ connection.connect((err) => {
   console.log('Connected to the mySQL database');
 });
 
-const getAllNeighborhoodData = () => {
+const getThisNeighborhoodData = (neighborhood) => {
+  return new Promise((resolve, reject) => {
+    const queryStr = `SELECT * FROM neighborhoods WHERE neighborhood = "${neighborhood}"`;
+    connection.query(queryStr, (err, result, fields) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
+
+const getAllNeighborhoodData = (neighborhood) => {
   return new Promise((resolve, reject) => {
     const queryStr = 'SELECT * FROM neighborhoods';
     connection.query(queryStr, (err, result, fields) => {
@@ -31,4 +43,19 @@ const getAllNeighborhoodData = () => {
   });
 };
 
-module.exports = { connection, getAllNeighborhoodData };
+const getAllHouseData = () => {
+  return new Promise((resolve, reject) => {
+    const queryStr = 'SELECT * FROM houses';
+    connection.query(queryStr, (err, result, fields) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
+
+
+module.exports = {
+  connection, getThisNeighborhoodData, getAllNeighborhoodData, getAllHouseData,
+};

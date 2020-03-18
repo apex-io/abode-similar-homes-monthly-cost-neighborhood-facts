@@ -8,7 +8,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
     "build:react": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "populateNeighborhoods": "node database/fakerPopulateNeighborhoods.js",
+    "populateHouses": "node database/fakerPopulateHouses.js"
   },
   "repository": {
     "type": "git",

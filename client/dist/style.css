@@ -1,0 +1,27 @@
+.hidden {
+  display: none;
+}
+
+.inc {
+  color: green;
+  font-weight: 700;
+}
+
+.dec {
+  color: red;
+  font-weight: 700;
+}
+
+.statsListItem {
+  padding-top: 10px;
+}
+
+.abodestimate {
+  font-weight: 700;
+  border-bottom: 1px dashed black;
+}
+
+.homeValues {
+  color: rgb(19, 103, 172);
+  font-weight: 700;
+}

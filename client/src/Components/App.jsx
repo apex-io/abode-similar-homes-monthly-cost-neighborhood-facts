@@ -1,35 +1,91 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
+import Scores from './Scores.jsx';
+import Stats from './Stats.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      neighborhoods: [],
+      house: {},
+      houses: [],
+      neighborhood: {},
     };
+    this.getHouseData = this.getHouseData.bind(this);
     this.getNeighborhoodData = this.getNeighborhoodData.bind(this);
   }
 
   componentDidMount() {
-    this.getNeighborhoodData();
+    this.getHouseData();
   }
 
-  getNeighborhoodData() {
-    axios.get('/api/neighborhoods')
+  getNeighborhoodData(neighborhood) {
+    axios.get('/api/neighborhoods', {
+      params: {
+        name: neighborhood,
+      },
+    })
       .then((response) => {
-        console.log(response);
-        this.setState({ neighborhoods: response.data });
+        const { house } = this.state;
+        console.log(response.data[0]);
+        this.setState({
+          house: { ...house },
+          houses: response.data,
+          neighborhood: response.data[0],
+        });
+        console.log(this.state);
       })
       .catch((err) => {
         throw err;
       });
   }
 
+  getHouseData() {
+    axios.get('/api/houses')
+      .then((response) => {
+        const { house, neighborhood } = this.state;
+        if (!Object.keys(house).length) {
+          this.setState({
+            house: response.data[0],
+            houses: response.data,
+            neighborhood: { ...neighborhood },
+          });
+        } else {
+          this.setState({
+            house: { ...house },
+            houses: response.data,
+            neighborhood: { ...neighborhood },
+          });
+        }
+        this.getNeighborhoodData(this.state.house.neighborhood);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  currentHouse(setHouse) {
+    const { houses } = this.state;
+    this.setState({ house: setHouse, houses: [...houses] });
+  }
+
   render() {
+    const { house, neighborhood } = this.state;
+    const currentHouse = !Object.keys(house).length ? null : house;
     return (
-      <div>Hello</div>
+      <div id="appContainer">
+        <h2 id="neighborhoodHeader">
+          Neighborhood: {currentHouse ? currentHouse.neighborhood : ''}
+        </h2>
+        <Scores neighborhood={neighborhood} />
+        <Stats neighborhood={neighborhood} house={house} />
+      </div>
     );
   }
 }
