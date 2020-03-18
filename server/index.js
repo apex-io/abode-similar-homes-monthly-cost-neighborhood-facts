@@ -13,11 +13,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/api/neighborhoods', (req, res) => {
-  db.getAllNeighborhoodData()
-    .then((results) => {
-      console.log(results);
-      return res.status(200).json(results);
-    })
+  db.getThisNeighborhoodData(req.query.name)
+    .then((results) => res.status(200).json(results))
+    .catch((err) => {
+      throw err;
+    });
+});
+
+app.get('/api/houses', (req, res) => {
+  db.getAllHouseData()
+    .then((results) => res.status(200).json(results))
     .catch((err) => {
       throw err;
     });
