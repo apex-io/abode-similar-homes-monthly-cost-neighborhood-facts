@@ -7,6 +7,7 @@ import React from 'react';
 import axios from 'axios';
 import Scores from './Scores.jsx';
 import Stats from './Stats.jsx';
+import SeeMore from './SeeMore.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,13 +34,12 @@ class App extends React.Component {
     })
       .then((response) => {
         const { house } = this.state;
-        console.log(response.data[0]);
         this.setState({
           house: { ...house },
           houses: response.data,
           neighborhood: response.data[0],
         });
-        console.log(this.state);
+        console.log(response.data[0]);
       })
       .catch((err) => {
         throw err;
@@ -85,6 +85,7 @@ class App extends React.Component {
         </h2>
         <Scores neighborhood={neighborhood} />
         <Stats neighborhood={neighborhood} house={house} />
+        <SeeMore />
       </div>
     );
   }

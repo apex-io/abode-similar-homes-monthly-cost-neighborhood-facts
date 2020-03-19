@@ -4,12 +4,12 @@
 
 .inc {
   color: green;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .dec {
   color: red;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .statsListItem {
@@ -17,11 +17,16 @@
 }
 
 .abodestimate {
-  font-weight: 700;
+  font-weight: 600;
   border-bottom: 1px dashed black;
 }
 
 .homeValues {
-  color: rgb(19, 103, 172);
-  font-weight: 700;
+  color: rgb(0, 106, 255);
+  font-weight: 600;
+}
+
+.score {
+  color: rgb(0, 106, 255);
+  font-weight: 600;
 }
