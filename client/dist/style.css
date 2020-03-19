@@ -3,30 +3,90 @@
 }
 
 .inc {
-  color: green;
+  color: #17b036;
   font-weight: 600;
 }
 
 .dec {
-  color: red;
+  color: #ff5a50;
   font-weight: 600;
 }
 
 .statsListItem {
-  padding-top: 10px;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .abodestimate {
   font-weight: 600;
-  border-bottom: 1px dashed black;
+  border-bottom: 1px dashed rgb(199, 199, 199);
 }
 
 .homeValues {
-  color: rgb(0, 106, 255);
+  color: #006aff;
   font-weight: 600;
 }
 
 .score {
-  color: rgb(0, 106, 255);
+  color: #006aff;
   font-weight: 600;
+}
+
+body {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  color: #2a2a33;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+#neighborhoodHeader {
+  border-bottom: 1px solid #c6c6d1;
+  line-height: 32px;
+  padding-bottom: 20px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+  padding-top: 15px;
+}
+
+.scoreText {
+  font-weight: 600;
+  border-bottom: 1px dashed #ccc;
+}
+
+.scoreItem {
+  margin: 0 0 10px 0;
+}
+
+li {
+  line-height: 24px;
+  margin: 0 0 15px 0;
+}
+
+ul {
+  padding: 20px;
+}
+
+span {
+  line-height: 24px;
+}
+
+.statsList {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#scoresContainer {
+  padding-top: 12px;
+}
+
+.personImg {
+  height: 30px;
 }
