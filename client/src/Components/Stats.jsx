@@ -35,7 +35,6 @@ const Stats = ({ neighborhood, house }) => {
     incDecFuture = 'dec';
   }
 
-
   let percentDiff;
   let incDecMedian = 'incDec';
   let incDecArrowMedian;
