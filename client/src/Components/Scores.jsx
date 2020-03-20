@@ -20,9 +20,6 @@ const Scores = ({ neighborhood }) => {
   return (
     <div id="scoresContainer">
       <div className="scoreItem">
-        <span>
-{/*           <img src="images/person.png" alt="" className="personImg" /> */}
-        </span>
         <span className="scoreText">Walk Score</span>
         <span><sup>®</sup>: </span>
         <span className="score"> {neighborhood.walk_score}</span>

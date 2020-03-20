@@ -21,6 +21,22 @@ app.get('/api/neighborhoods', (req, res) => {
 });
 
 app.get('/api/houses', (req, res) => {
+  if (!req.query.name) {
+    db.getAllHouseData()
+      .then((results) => res.status(200).json(results))
+      .catch((err) => {
+        throw err;
+      });
+  } else {
+    db.getAllNeighborhoodHouses(req.query.name)
+      .then((results) => res.status(200).json(results))
+      .catch((err) => {
+        throw err;
+      });
+  }
+});
+
+app.get('/api/houses', (req, res) => {
   db.getAllHouseData()
     .then((results) => res.status(200).json(results))
     .catch((err) => {

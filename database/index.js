@@ -55,7 +55,22 @@ const getAllHouseData = () => {
   });
 };
 
+const getAllNeighborhoodHouses = (neighborhood) => {
+  return new Promise((resolve, reject) => {
+    const queryStr = `SELECT * FROM houses WHERE neighborhood = "${neighborhood}"`;
+    connection.query(queryStr, (err, result, fields) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
 
 module.exports = {
-  connection, getThisNeighborhoodData, getAllNeighborhoodData, getAllHouseData,
+  connection,
+  getThisNeighborhoodData,
+  getAllNeighborhoodData,
+  getAllHouseData,
+  getAllNeighborhoodHouses,
 };

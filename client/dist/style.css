@@ -90,3 +90,103 @@ span {
 .personImg {
   height: 30px;
 }
+
+#app {
+  width: 500px;
+}
+
+.homeAddress {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.homeCost {
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.smallText {
+  font-size: 12px;
+  line-height: 10px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.houseCard {
+  position: relative;
+  width: 150px;
+  height: 187px;
+  border: 1px solid rgb(189, 189, 189);
+  border-bottom: 3px solid rgb(0, 106, 255);
+  border-radius: 3px;
+  margin: 5px;
+  display: none;
+  cursor: pointer;
+}
+
+.cardImage {
+  position: relative;
+  width: 150px;
+  height: 112px;
+  background-color: lightgray;
+  margin-bottom: 5px;
+}
+
+.cardInfo {
+  position: relative;
+  padding: 0 8px;
+}
+
+.cardCarousel {
+  display: flex;
+  align-items: flex-start;
+}
+
+#card1 {
+  display: inline;
+}
+
+#card2 {
+  display: inline;
+}
+
+.carouselButton {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  color: #006aff;
+  font-weight: 400;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  border: 1px solid #006aff;
+  line-height: 10px;
+  position: relative;
+  top: 83px;
+  outline: none;
+}
+
+.carouselButton:hover {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  color: #006aff;
+  font-weight: 400;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #066aff;
+  border: 1px solid #066aff;
+  color: #ffffff;
+  line-height: 10px;
+  position: relative;
+  top: 83px;
+  outline: none;
+  cursor: pointer;
+}
+
+.cardContainer {
+  display: flex;
+}
