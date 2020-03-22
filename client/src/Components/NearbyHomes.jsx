@@ -13,6 +13,9 @@ class NearbyHomes extends React.Component {
     this.state = {
       nearbyHomes: [],
       position: -162,
+      cardCount: 0,
+      leftDisabled: true,
+      rightDisabled: false,
     };
 
     this.getHouseData = this.getHouseData.bind(this);
@@ -41,10 +44,11 @@ class NearbyHomes extends React.Component {
   }
 
   clickCarouselLeft() {
-    const { position } = this.state;
+    const { position, cardCount, rightDisabled } = this.state;
     if (position < -162) {
       this.setState({
         position: position + 162,
+        cardCount: cardCount - 1,
       });
       if (position + 162 < position) {
         $('.cardContainer').css({
@@ -56,23 +60,58 @@ class NearbyHomes extends React.Component {
         });
       }
     }
+    if (rightDisabled) {
+      this.setState({
+        rightDisabled: false,
+      });
+    }
+    if (cardCount <= 1) {
+      this.setState({
+        leftDisabled: true,
+      });
+    }
+    $('.medianToolTip').css({
+      'display': 'none',
+    });
+    $('.walkToolTip').css({
+      'display': 'none',
+    });
+    $('.transitToolTip').css({
+      'display': 'none',
+    });
   }
 
   clickCarouselRight() {
-    const { nearbyHomes, position } = this.state;
+    const {
+      nearbyHomes,
+      position,
+      cardCount,
+      leftDisabled,
+    } = this.state;
+
     if (position - 162 > -162 * nearbyHomes.length) {
       this.setState({
         position: position - 162,
+        cardCount: cardCount + 1,
       });
-
       $('.cardContainer').css({
         'transform': `translate3d(${position}px, 0, 0)`,
+      });
+    }
+    if (leftDisabled) {
+      this.setState({
+        leftDisabled: false,
+      });
+    }
+    if (cardCount === nearbyHomes.length - 3) {
+      this.setState({
+        rightDisabled: true,
       });
     }
   }
 
   render() {
-    const { nearbyHomes } = this.state;
+    const { nearbyHomes, leftDisabled, rightDisabled } = this.state;
     let allNearby = <div />;
 
     if (nearbyHomes.length) {
@@ -80,13 +119,13 @@ class NearbyHomes extends React.Component {
     }
     return (
       <div className="carouselContainer">
-        <button className="carouselButton" id="buttonLeft" onClick={this.clickCarouselLeft} type="button"><svg className="svgArrowLeft" viewBox="0 0 36 36" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" /></svg></button>
+        <button disabled={false} className={leftDisabled ? 'carouselButtonDisabled' : 'carouselButton'} id="buttonLeft" onClick={this.clickCarouselLeft} type="button"><svg className="svgArrowLeft" viewBox="0 0 36 36" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" /></svg></button>
         <div className="cardWindow">
           <div className="cardContainer">
             {allNearby}
           </div>
         </div>
-        <button className="carouselButton" id="buttonRight" onClick={this.clickCarouselRight} type="button"><svg className="svgArrowRight" viewBox="0 0 36 36" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" /></svg></button>
+        <button className={rightDisabled ? 'carouselButtonDisabled' : 'carouselButton'} id="buttonRight" onClick={this.clickCarouselRight} type="button"><svg className="svgArrowRight" viewBox="0 0 36 36" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" /></svg></button>
       </div>
     );
   }

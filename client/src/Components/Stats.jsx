@@ -1,5 +1,9 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable quote-props */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import $ from 'jquery';
 
 const Stats = ({ neighborhood, house }) => {
   let incDecWordPast;
@@ -54,6 +58,24 @@ const Stats = ({ neighborhood, house }) => {
     higherLower = 'lower';
   }
 
+  const onClickModal = () => {
+    $('.medianToolTip').css({
+      'display': 'block',
+    });
+    $('.walkToolTip').css({
+      'display': 'none',
+    });
+    $('.transitToolTip').css({
+      'display': 'none',
+    });
+  };
+
+  const onClickX = () => {
+    $('.medianToolTip').css({
+      'display': 'none',
+    });
+  };
+
   return (
     <div>
       <h3>Neighborhood Stats</h3>
@@ -88,9 +110,14 @@ const Stats = ({ neighborhood, house }) => {
           </li>
         </div>
         <div className="statslistItem">
+          <div className="medianToolTip">
+            <div className="xButton" onClick={onClickX}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z" /></svg></div>
+            <div className="medianToolTipArrow"><svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path id="shape 21" d="M12 .001l12 12-12 12-12-12 12-12z" /></svg></div>
+            <div className="innerTextBox"><span className="toolTipText">The median Abodestimate<sup>®</sup> valuation for a given geographic area on a given day is the <span className="toolTipText bold">Abode Home Value Index.</span></span><span className="learnMore"> Learn more</span></div>
+          </div>
           <li>
-            <span>The</span>
-            <span className="abodestimate"> median Abodestimate</span>
+            <span>The </span>
+            <span className="abodestimate" onClick={onClickModal}>median Abodestimate</span>
             <span><sup>®</sup></span>
             <span> for this neighborhood is</span>
             <span> ${Number(neighborhood.median_value).toLocaleString()}.</span>

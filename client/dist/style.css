@@ -37,6 +37,10 @@
   font-weight: 600;
 }
 
+.score:hover {
+  cursor: pointer;
+}
+
 body {
   font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
   font-size: 16px;
@@ -66,6 +70,10 @@ h3 {
   border-bottom: 1px dashed #ccc;
 }
 
+.scoreText:hover {
+  cursor: pointer;
+}
+
 li {
   line-height: 24px;
   margin: 0 0 15px 0;
@@ -92,6 +100,7 @@ span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  height: 12px;
 }
 
 .homeCost {
@@ -173,6 +182,23 @@ span {
   fill: #ffffff;
 }
 
+.carouselButtonDisabled {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid lightgray;
+  border-radius: 32px;
+  background-color: #ffffff;
+  line-height: 10px;
+  position: relative;
+  top: 83px;
+  outline: none;
+  fill: lightgray;
+}
+
 #buttonLeft {
   margin-right: 30px;
 }
@@ -214,6 +240,8 @@ span {
   left: 125px;
   top: 10px;
   fill: #e45959;
+  color: #e45959;
+  text-shadow: 2px 2px 5px white;
 }
 
 .see {
@@ -271,7 +299,7 @@ span {
   width: 150px;
   height: 112px;
   background-color: lightgray;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   overflow: hidden;
 }
 
@@ -314,4 +342,122 @@ span {
 
 .scoreItem {
   margin: 0 0 10px 0;
+}
+
+.mapouter {
+  position:relative;
+  text-align:right;
+  height:200px;
+  width:452px;
+}
+
+.gmap_canvas {
+  overflow:hidden;
+  background:none!important;
+  height: 200px;
+  width: 452px;
+}
+
+.medianToolTip {
+  left: 20px;
+  top: 340px;
+  position: absolute;
+  width: 310px;
+  height: 100px;
+  background-color: #2A2A33;
+  border-radius: 5px;
+  display: none;
+}
+
+.transitToolTip {
+  left: 20px;
+  top: 220px;
+  position: absolute;
+  width: 310px;
+  height: 175px;
+  background-color: #2A2A33;
+  border-radius: 5px;
+  display: none;
+}
+
+.walkToolTip {
+  left: 20px;
+  top: 180px;
+  position: absolute;
+  width: 310px;
+  height: 175px;
+  background-color: #2A2A33;
+  border-radius: 5px;
+  display: none;
+}
+
+.toolTipText {
+  position: relative;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 10px;
+}
+
+.toolTipText .bold {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.innerTextBox {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 23px;
+}
+
+.learnMore {
+  color: #066aff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 10px;
+}
+
+.learnMore:hover {
+  color: #62aef7;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 10px;
+  border-bottom: 1px solid #62aef7;
+  cursor: pointer;
+}
+
+.xButton {
+  position: absolute;
+  color: #ffffff;
+  fill: #ffffff;
+  right: 1px;
+  top: 5px;
+}
+
+.xButton:hover {
+  cursor: pointer;
+}
+
+.medianToolTipArrow {
+  position: absolute;
+  fill: #2A2A33;
+  top: 92px;
+  left: 120px;
+}
+
+.transitToolTipArrow {
+  position: absolute;
+  fill: #2A2A33;
+  top: -8px;
+  left: 120px;
+}
+
+.abodestimate:hover {
+  cursor: pointer;
+}
+
+.transitScoreTip {
+  position: relative;
+  margin-top: 15px;
 }
