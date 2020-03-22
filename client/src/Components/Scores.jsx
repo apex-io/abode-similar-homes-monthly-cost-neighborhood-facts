@@ -20,12 +20,14 @@ const Scores = ({ neighborhood }) => {
   return (
     <div id="scoresContainer">
       <div className="scoreItem">
+        <div className="scoreImageContainer"><img src="images/person.png" alt="person" className="personImage" /></div>
         <span className="scoreText">Walk Score</span>
         <span><sup>®</sup>: </span>
         <span className="score"> {neighborhood.walk_score}</span>
         <span className="scoreGrade"> {walkScore}</span>
       </div>
       <div className="scoreItem">
+        <div className="scoreImageContainer"><img src="images/car.png" alt="car" className="carImage" /></div>
         <span className="scoreText">Transit Score</span>
         <span><sup>™</sup>: </span>
         <span className="score"> {neighborhood.transit_score}</span>

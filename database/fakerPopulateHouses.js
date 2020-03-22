@@ -33,7 +33,8 @@ const populateHouses = () => {
           const bathrooms = bedrooms - faker.random.number({ min: 1, max: 2 });
           const homeAddress = faker.address.streetName() + ' ' + streetSuff[Math.floor(Math.random() * streetSuff.length)];
           const sf = bedrooms * faker.random.number({ min: 750, max: 950 });
-          const queryStr = `INSERT INTO houses (neighborhood, home_cost, bedrooms, bathrooms, home_address, sf) VALUES ("${neighborhood.neighborhood}", ${homeCost}, ${bedrooms}, ${bathrooms}, "${homeAddress}", ${sf})`;
+          const image = faker.random.number({ min: 1, max: 55 }) + '.jpg';
+          const queryStr = `INSERT INTO houses (neighborhood, home_cost, bedrooms, bathrooms, home_address, sf, home_image) VALUES ("${neighborhood.neighborhood}", ${homeCost}, ${bedrooms}, ${bathrooms}, "${homeAddress}", ${sf}, "${image}")`;
           db.connection.query(queryStr, (err, result, fields) => {
             if (err) {
               return reject(err);

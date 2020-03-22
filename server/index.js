@@ -21,14 +21,20 @@ app.get('/api/neighborhoods', (req, res) => {
 });
 
 app.get('/api/houses', (req, res) => {
-  if (!req.query.name) {
-    db.getAllHouseData()
+  if (req.query.name) {
+    db.getAllNeighborhoodHouses(req.query.name)
+      .then((results) => res.status(200).json(results))
+      .catch((err) => {
+        throw err;
+      });
+  } else if (req.query.houseId) {
+    db.getHeartData(req.query.houseId)
       .then((results) => res.status(200).json(results))
       .catch((err) => {
         throw err;
       });
   } else {
-    db.getAllNeighborhoodHouses(req.query.name)
+    db.getAllHouseData()
       .then((results) => res.status(200).json(results))
       .catch((err) => {
         throw err;
@@ -38,6 +44,14 @@ app.get('/api/houses', (req, res) => {
 
 app.get('/api/houses', (req, res) => {
   db.getAllHouseData()
+    .then((results) => res.status(200).json(results))
+    .catch((err) => {
+      throw err;
+    });
+});
+
+app.put('/api/houses', (req, res) => {
+  db.updateHeart(req.body.params.houseId)
     .then((results) => res.status(200).json(results))
     .catch((err) => {
       throw err;

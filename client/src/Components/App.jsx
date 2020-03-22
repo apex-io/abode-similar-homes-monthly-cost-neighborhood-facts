@@ -8,7 +8,6 @@ import axios from 'axios';
 import Scores from './Scores.jsx';
 import Stats from './Stats.jsx';
 import SeeMore from './SeeMore.jsx';
-import NearbyHomes from './NearbyHomes.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -82,13 +81,11 @@ class App extends React.Component {
     const currentHouse = !Object.keys(house).length ? null : house;
     let scores = <div />;
     let stats = <div />;
-    let nearbyHomes = <div />;
     let seeMore = <div />;
     if (Object.keys(neighborhood).length) {
       scores = <Scores neighborhood={neighborhood} />;
       stats = <Stats neighborhood={neighborhood} house={house} />;
-      nearbyHomes = <NearbyHomes neighborhood={neighborhood} />;
-      seeMore = <SeeMore />;
+      seeMore = <SeeMore neighborhood={neighborhood} />;
     }
     return (
       <div id="appContainer">
@@ -98,8 +95,6 @@ class App extends React.Component {
         {scores}
         {stats}
         {seeMore}
-        <h3>Nearby Homes</h3>
-        {nearbyHomes}
       </div>
     );
   }

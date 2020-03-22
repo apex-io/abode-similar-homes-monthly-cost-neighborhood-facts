@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable quote-props */
 import React from 'react';
 import Axios from 'axios';
@@ -10,8 +12,7 @@ class NearbyHomes extends React.Component {
 
     this.state = {
       nearbyHomes: [],
-      cardOneCounter: 1,
-      cardTwoCounter: 3,
+      position: -162,
     };
 
     this.getHouseData = this.getHouseData.bind(this);
@@ -22,6 +23,7 @@ class NearbyHomes extends React.Component {
 
   componentDidMount() {
     const { neighborhood } = this.props;
+
     this.getHouseData(neighborhood);
   }
 
@@ -39,51 +41,52 @@ class NearbyHomes extends React.Component {
   }
 
   clickCarouselLeft() {
-    const { cardOneCounter, cardTwoCounter } = this.state;
-
-    if (cardTwoCounter > 2) {
+    const { position } = this.state;
+    if (position < -162) {
       this.setState({
-        cardOneCounter: cardOneCounter - 1,
-        cardTwoCounter: cardTwoCounter - 1,
+        position: position + 162,
       });
-      $(`#card${cardOneCounter}`).css({
-        'display': 'inline',
-      });
-      $(`#card${cardTwoCounter}`).css({
-        'display': 'none',
-      });
+      if (position + 162 < position) {
+        $('.cardContainer').css({
+          'transform': `translate3d(${position}px, 0, 0)`,
+        });
+      } else {
+        $('.cardContainer').css({
+          'transform': `translate3d(${position + 324}px, 0, 0)`,
+        });
+      }
     }
-    // console.log(this.state);
-    // console.log('card one:', cardOneCounter, 'deleted card', cardTwoCounter);
   }
 
   clickCarouselRight() {
-    const { cardOneCounter, cardTwoCounter, nearbyHomes } = this.state;
-
-    if (cardTwoCounter < nearbyHomes.length) {
+    const { nearbyHomes, position } = this.state;
+    if (position - 162 > -162 * nearbyHomes.length) {
       this.setState({
-        cardOneCounter: cardOneCounter + 1,
-        cardTwoCounter: cardTwoCounter + 1,
+        position: position - 162,
       });
-      $(`#card${cardTwoCounter}`).css({
-        'display': 'inline',
-      });
-      $(`#card${cardOneCounter}`).css({
-        'display': 'none',
+
+      $('.cardContainer').css({
+        'transform': `translate3d(${position}px, 0, 0)`,
       });
     }
-    // console.log(this.state);
-    // console.log('deleted card:', cardOneCounter, 'card two:', cardTwoCounter);
   }
 
   render() {
     const { nearbyHomes } = this.state;
+    let allNearby = <div />;
 
+    if (nearbyHomes.length) {
+      allNearby = nearbyHomes.map((home) => <NearbyHomeCard home={home} id={home.id} key={home.id} />);
+    }
     return (
-      <div className="cardContainer">
-        <button className="carouselButton" onClick={this.clickCarouselLeft} type="button">{'<'}</button>
-        <div><NearbyHomeCard houses={nearbyHomes} /></div>
-        <button className="carouselButton" onClick={this.clickCarouselRight} type="button">{'>'}</button>
+      <div className="carouselContainer">
+        <button className="carouselButton" id="buttonLeft" onClick={this.clickCarouselLeft} type="button"><svg className="svgArrowLeft" viewBox="0 0 36 36" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" /></svg></button>
+        <div className="cardWindow">
+          <div className="cardContainer">
+            {allNearby}
+          </div>
+        </div>
+        <button className="carouselButton" id="buttonRight" onClick={this.clickCarouselRight} type="button"><svg className="svgArrowRight" viewBox="0 0 36 36" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" /></svg></button>
       </div>
     );
   }
