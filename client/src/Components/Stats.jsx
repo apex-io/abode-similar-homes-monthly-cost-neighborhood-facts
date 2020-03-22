@@ -58,36 +58,44 @@ const Stats = ({ neighborhood, house }) => {
     <div>
       <h3>Neighborhood Stats</h3>
       <ul className="statsList">
-        <li className="statslistItem">
-          <span className="homeValues">Home values</span>
-          <span> in {neighborhood.neighborhood} have </span>
-          <span className={incDecPast}>{incDecWordPast}</span>
-          <span className={incDecPast}> {Math.abs(neighborhood.value_inc_dec_past)}%</span>
-          <span className={neighborhood.value_inc_dec_past ? incDecPast : 'hidden'}> ({incDecArrowPast})</span>
-          <span> over the past 12 months.</span>
-        </li>
-        <li className="statslistItem">
-          <span>Abode predicts the home values in</span>
-          <span> {neighborhood.neighborhood} will</span>
-          <span className={incDecFuture}> {incDecWordFuture}</span>
-          <span className={neighborhood.value_inc_dec_future ? incDecFuture : 'hidden'}> {mathAbs}%</span>
-          <span className={neighborhood.value_inc_dec_future ? incDecFuture : 'hidden'}> ({incDecArrowFuture})</span>
-          <span> in the next year.</span>
-        </li>
-        <li className="statslistItem">
-          <span>This home is valued </span>
-          <span className={incDecMedian}> {percentDiff}%</span>
-          <span className={incDecMedian}> {higherLower} ({incDecArrowMedian})</span>
-          <span> than the median home in</span>
-          <span> {neighborhood.neighborhood}.</span>
-        </li>
-        <li className="statslistItem">
-          <span>The</span>
-          <span className="abodestimate"> median Abodestimate</span>
-          <span><sup>®</sup></span>
-          <span> for this neighborhood is</span>
-          <span> ${Number(neighborhood.median_value).toLocaleString()}.</span>
-        </li>
+        <div className="statslistItem">
+          <li>
+            <span className="homeValues">Home values</span>
+            <span> in {neighborhood.neighborhood} have </span>
+            <span className={incDecPast}>{incDecWordPast}</span>
+            <span className={incDecPast}> {Math.abs(neighborhood.value_inc_dec_past)}%</span>
+            <span className={neighborhood.value_inc_dec_past ? incDecPast : 'hidden'}> ({incDecArrowPast})</span>
+            <span> over the past 12 months.</span>
+          </li>
+        </div>
+        <div className="statslistItem">
+          <li>
+            <span>Abode predicts the home values in</span>
+            <span> {neighborhood.neighborhood} will</span>
+            <span className={incDecFuture}> {incDecWordFuture}</span>
+            <span className={neighborhood.value_inc_dec_future ? incDecFuture : 'hidden'}> {mathAbs}%</span>
+            <span className={neighborhood.value_inc_dec_future ? incDecFuture : 'hidden'}> ({incDecArrowFuture})</span>
+            <span> in the next year.</span>
+          </li>
+        </div>
+        <div className="statslistItem">
+          <li>
+            <span>This home is valued </span>
+            <span className={incDecMedian}> {percentDiff}%</span>
+            <span className={incDecMedian}> {higherLower} ({incDecArrowMedian})</span>
+            <span> than the median home in</span>
+            <span> {neighborhood.neighborhood}.</span>
+          </li>
+        </div>
+        <div className="statslistItem">
+          <li>
+            <span>The</span>
+            <span className="abodestimate"> median Abodestimate</span>
+            <span><sup>®</sup></span>
+            <span> for this neighborhood is</span>
+            <span> ${Number(neighborhood.median_value).toLocaleString()}.</span>
+          </li>
+        </div>
       </ul>
     </div>
   );

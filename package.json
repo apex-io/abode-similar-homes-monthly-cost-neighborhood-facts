@@ -31,9 +31,11 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jquery": "^3.4.1",
     "mysql": "^2.18.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-transition-group": "^4.3.0",
     "sinon": "^9.0.1"
   },
   "devDependencies": {

@@ -39,7 +39,7 @@ class App extends React.Component {
           houses: response.data,
           neighborhood: response.data[0],
         });
-        console.log(response.data[0]);
+        // console.log(response.data[0]);
       })
       .catch((err) => {
         throw err;
@@ -56,10 +56,11 @@ class App extends React.Component {
             houses: response.data,
             neighborhood: { ...neighborhood },
           });
+          // console.log(this.state.houses);
         } else {
           this.setState({
             house: { ...house },
-            houses: response.data,
+            houses: { ...response.data },
             neighborhood: { ...neighborhood },
           });
         }
@@ -78,14 +79,22 @@ class App extends React.Component {
   render() {
     const { house, neighborhood } = this.state;
     const currentHouse = !Object.keys(house).length ? null : house;
+    let scores = <div />;
+    let stats = <div />;
+    let seeMore = <div />;
+    if (Object.keys(neighborhood).length) {
+      scores = <Scores neighborhood={neighborhood} />;
+      stats = <Stats neighborhood={neighborhood} house={house} />;
+      seeMore = <SeeMore neighborhood={neighborhood} />;
+    }
     return (
       <div id="appContainer">
         <h2 id="neighborhoodHeader">
           Neighborhood: {currentHouse ? currentHouse.neighborhood : ''}
         </h2>
-        <Scores neighborhood={neighborhood} />
-        <Stats neighborhood={neighborhood} house={house} />
-        <SeeMore />
+        {scores}
+        {stats}
+        {seeMore}
       </div>
     );
   }

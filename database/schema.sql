@@ -21,5 +21,7 @@ CREATE TABLE houses (
     bedrooms INT NOT NULL,
     bathrooms INT NOT NULL,
     home_address VARCHAR (30) NOT NULL,
-    sf INT NOT NULL
+    sf INT NOT NULL,
+    home_image VARCHAR (7) NOT NULL,
+    heart_filled BOOLEAN DEFAULT false
 );

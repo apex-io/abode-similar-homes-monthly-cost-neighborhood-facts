@@ -55,7 +55,48 @@ const getAllHouseData = () => {
   });
 };
 
+const getAllNeighborhoodHouses = (neighborhood) => {
+  return new Promise((resolve, reject) => {
+    const queryStr = `SELECT * FROM houses WHERE neighborhood = "${neighborhood}"`;
+    connection.query(queryStr, (err, result, fields) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
+
+const updateHeart = (houseId) => {
+  return new Promise((resolve, reject) => {
+    const queryStr = `UPDATE houses SET heart_filled = !heart_filled WHERE id = "${houseId}"`;
+    connection.query(queryStr, (err, result, fields) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
+
+const getHeartData = (id) => {
+  return new Promise((resolve, reject) => {
+    const queryStr = `SELECT heart_filled FROM houses WHERE id = "${id}"`;
+    connection.query(queryStr, (err, result, fields) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
 
 module.exports = {
-  connection, getThisNeighborhoodData, getAllNeighborhoodData, getAllHouseData,
+  connection,
+  getThisNeighborhoodData,
+  getAllNeighborhoodData,
+  getAllHouseData,
+  getAllNeighborhoodHouses,
+  updateHeart,
+  getHeartData,
 };

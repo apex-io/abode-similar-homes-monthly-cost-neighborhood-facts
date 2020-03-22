@@ -1,32 +1,317 @@
+#app {
+  width: 452px;
+  padding: 8px;
+}
+
 .hidden {
   display: none;
 }
 
 .inc {
-  color: green;
+  color: #17b036;
   font-weight: 600;
 }
 
 .dec {
-  color: red;
+  color: #ff5a50;
   font-weight: 600;
 }
 
 .statsListItem {
-  padding-top: 10px;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .abodestimate {
   font-weight: 600;
-  border-bottom: 1px dashed black;
+  border-bottom: 1px dashed rgb(199, 199, 199);
 }
 
 .homeValues {
-  color: rgb(0, 106, 255);
+  color: #006aff;
   font-weight: 600;
 }
 
 .score {
-  color: rgb(0, 106, 255);
+  color: #006aff;
   font-weight: 600;
+}
+
+body {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  color: #2a2a33;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+#neighborhoodHeader {
+  border-bottom: 1px solid #c6c6d1;
+  line-height: 32px;
+  padding-bottom: 20px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+  padding-top: 15px;
+}
+
+.scoreText {
+  font-weight: 600;
+  border-bottom: 1px dashed #ccc;
+}
+
+li {
+  line-height: 24px;
+  margin: 0 0 15px 0;
+}
+
+ul {
+  padding: 20px;
+}
+
+span {
+  line-height: 24px;
+}
+
+.statsList {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#scoresContainer {
+  padding-top: 12px;
+}
+
+.homeAddress {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.homeCost {
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.smallText {
+  font-size: 12px;
+  line-height: 10px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.houseCard {
+  position: relative;
+  width: 150px;
+  height: 187px;
+  border: 1px solid rgb(189, 189, 189);
+  border-bottom: 3px solid rgb(0, 106, 255);
+  border-radius: 3px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.cardInfo {
+  position: relative;
+  padding: 0 8px;
+}
+
+.cardCarousel {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* #card1 {
+  display: inline;
+}
+
+#card2 {
+  display: inline;
+} */
+
+.carouselButton {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  color: #006aff;
+  font-weight: 400;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #066aff;
+  border-radius: 32px;
+  background-color: #ffffff;
+  line-height: 10px;
+  position: relative;
+  top: 83px;
+  outline: none;
+  fill: #006aff;
+}
+
+.carouselButton:hover {
+  font-family: 'Open Sans', Tahoma, Geneva, sans-serif;
+  color: #006aff;
+  font-weight: 400;
+  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #066aff;
+  border-radius: 32px;
+  background-color: #066aff;
+  color: #ffffff;
+  line-height: 10px;
+  position: relative;
+  top: 83px;
+  outline: none;
+  cursor: pointer;
+  fill: #ffffff;
+}
+
+#buttonLeft {
+  margin-right: 30px;
+}
+
+#buttonRight {
+  margin-left: 30px;
+}
+
+.bullet {
+  color: lightgray;
+}
+
+.carouselContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.cardContainer {
+  display: flex;
+  transition: 0.25s ease-out;
+}
+
+.cardWindow {
+  width: 324px;
+  overflow: hidden;
+}
+
+.unfilledHeart {
+  position: absolute;
+  width: 10px;
+  left: 125px;
+  top: 10px;
+  fill: white;
+}
+
+.filledHeart {
+  position: absolute;
+  width: 10px;
+  left: 125px;
+  top: 10px;
+  fill: #e45959;
+}
+
+.see {
+  position: relative;
+  color: #006aff;
+  font-weight: 600;
+  fill: #066aff;
+  display: inline-block;
+}
+
+.see:hover {
+  color: #62aef7;
+  font-weight: 600;
+  cursor: pointer;
+  fill: #62aef7;
+  display: flex;
+}
+
+.moreDetails {
+  display: none;
+}
+
+#less {
+  margin-top: 25px;
+  display: none;
+} 
+
+#more {
+  margin-top: 25px;
+  display: block;
+}
+
+#more:hover {
+  margin-top: 25px;
+  display: block;
+}
+
+#nearbyHomesHeader {
+  margin-top: 8px;
+}
+
+.seeArrow {
+  position: relative;
+  display: inline-block;
+  top: 6px;
+  margin-right: 8px;
+}
+
+.seeText {
+  display: inline-block;
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 150px;
+  height: 112px;
+  background-color: lightgray;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svgArrowLeft {
+  position: relative;
+  top: 4px;
+  left: -1px;
+}
+
+.svgArrowRight {
+  position: relative;
+  top: 4px;
+  left: 1px;
+}
+
+.personImage {
+  height: 32px;
+  position: absolute;
+  top: -21px;
+  left: 10px;
+}
+
+.carImage {
+  width: 32px;
+  position: relative;
+  top: 3px;
+}
+
+.scoreImageContainer {
+  position: relative;
+  width: 40px;
+  display: inline-block;
+}
+
+.scoreItem {
+  margin: 0 0 10px 0;
 }
