@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Components/App.jsx';
+import Neighborhood from './Components/Neighborhood.jsx';
+import '../dist/style.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Neighborhood />, document.getElementById('app'));

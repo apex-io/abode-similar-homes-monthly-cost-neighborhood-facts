@@ -312,13 +312,11 @@ span {
 .svgArrowLeft {
   position: relative;
   top: 4px;
-  left: -1px;
 }
 
 .svgArrowRight {
   position: relative;
   top: 4px;
-  left: 1px;
 }
 
 .personImage {
