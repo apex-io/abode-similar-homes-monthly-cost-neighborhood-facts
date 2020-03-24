@@ -42,7 +42,7 @@ const SeeMore = ({ neighborhood }) => {
       </div>
 
       <div className="moreDetails">
-        <iframe className="map" title="map" width="100%" height="200px" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-122.43778710602784%2C37.77774105677948%2C-122.43458991288209%2C37.779782588007535&amp;layer=mapnik&amp;marker=37.77876182944124%2C-122.43618850945495" /><br />
+        <div className="mapouter"><div className="gmap_canvas"><iframe width="452" height="200" id="gmap_canvas" title="map" src="https://maps.google.com/maps?q=noe%20valley&t=k&z=15&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" /></div></div>
         <h3 id="nearbyHomesHeader">Nearby Homes</h3>
         <div><NearbyHomes neighborhood={neighborhood} /></div>
       </div>
