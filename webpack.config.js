@@ -18,6 +18,41 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
     ],
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
+  devServer: {
+    contentBase: './client/dist',
   },
 };
