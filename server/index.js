@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database');
 
-const port = 3000;
+const port = 3001;
 const app = express();
 
 // eslint-disable-next-line prefer-template
