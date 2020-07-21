@@ -323,13 +323,14 @@ span {
   height: 32px;
   position: absolute;
   top: -21px;
-  left: 10px;
+  left: 3px;
 }
 
 .carImage {
   width: 32px;
   position: relative;
-  top: 3px;
+  top: 13px;
+  left: 3px;
 }
 
 .scoreImageContainer {
